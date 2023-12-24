@@ -14,7 +14,7 @@ import dj_database_url
 import django_heroku
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-django_heroku.settings(locals())
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
 
@@ -27,7 +27,7 @@ SECRET_KEY = "934nw3r62@!m0^ksgw3#31tntglnr%td+-_b89xpu2@q2zqv=d"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost:"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
 LOGIN_REDIRECT_URL = "dashboard"
 
@@ -63,7 +63,6 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
 
 ROOT_URLCONF = "carhub.urls"
@@ -144,6 +143,7 @@ STATICFILES_DIRS = [
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
+django_heroku.settings(locals())
 # Messages
 from django.contrib.messages import constants as messages
 
